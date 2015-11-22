@@ -4,8 +4,9 @@ typedef int ArduinoHallSensor;
 extern "C"{
 #endif 
 
-int initialise(int device);
-void get_counts(ArduinoHallSensor handle, char* counts);
+int arduinoHallSensor_initialise(int device);
+void arduinoHallSensor_get_counts(ArduinoHallSensor handle, char* counts);
+void arduinoHallSensor_reset_counts(ArduinoHallSensor handle);
 
 #ifdef __cplusplus
 }

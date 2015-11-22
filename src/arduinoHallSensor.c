@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-ArduinoHallSensor initialise(int device){
+ArduinoHallSensor arduinoHallSensor_initialise(int device){
 	ArduinoHallSensor handle=-1;
 	char buf[15];
 	snprintf(buf,15,"/dev/i2c-%d",device);
@@ -23,7 +23,12 @@ ArduinoHallSensor initialise(int device){
 	return handle;
 }
 
-void get_counts(ArduinoHallSensor handle, char* counts){
+void arduinoHallSensor_get_counts(ArduinoHallSensor handle, char* counts){
 
 	read(handle, counts, 2);
+}
+
+void arduinoHallSensor_reset_counts(ArduinoHallSensor handle){
+	char blackHole[2];
+	read(handle, blackHole, 2);
 }
